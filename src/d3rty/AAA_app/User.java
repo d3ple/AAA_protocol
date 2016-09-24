@@ -1,8 +1,5 @@
 package d3rty.AAA_app;
 
-/**
- * Created by Andrew on 21.09.2016.
- */
 
 class User {
     public  int id;
