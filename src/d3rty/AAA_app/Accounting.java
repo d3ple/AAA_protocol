@@ -13,6 +13,7 @@ public class Accounting {
     public Date Date_st;
     public Date Date_end;
 
+
     public Accounting(int ID , Role Role, int Amount, Date Date_st, Date Date_end) {
         this.ID = ID;
         this.Role  = Role;
