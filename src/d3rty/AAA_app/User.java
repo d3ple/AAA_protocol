@@ -3,8 +3,7 @@ import  static d3rty.AAA_app.Security.Salt;
 import  static d3rty.AAA_app.Security.MD5;
 
 
-
-class User {
+public class User {
     public  int id;
     public String name;
     public String login;
