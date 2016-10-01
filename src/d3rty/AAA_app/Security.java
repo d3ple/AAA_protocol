@@ -4,9 +4,7 @@ import java.math.BigInteger;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 
-/**
- * Created by Andrew on 30.09.2016.
- */
+
 public class Security {
     public static  String Salt(){
 
