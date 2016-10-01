@@ -9,6 +9,7 @@ public class Main {
         users.add(new User(2, "Jane Row", "jrow", "Qweqrty12"));
 
 
+
         ArrayList<Role> roles = new ArrayList<>();
         roles.add(new Role(1, users.get(0), "READ", "a"));
         roles.add(new Role(2, users.get(0), "WRITE", "a.b"));

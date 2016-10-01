@@ -1,8 +1,5 @@
 package d3rty.AAA_app;
 
-/**
- * Created by Danil on 01.10.2016.
- */
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -44,11 +41,8 @@ public class Cli {
             if (cmd.hasOption("h"))
                 help();
 
-            if (cmd.hasOption("v")) {
-                log.log(Level.INFO, "Using cli argument -v=" + cmd.getOptionValue("v"));
-                // Whatever you want to do with the setting goes here
-            }
             if (cmd.hasOption("login")) {
+
                 System.out.println(cmd.getOptionValue("login"));
             }
 
