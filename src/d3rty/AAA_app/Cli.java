@@ -47,11 +47,9 @@ public class Cli {
             if (cmd.hasOption("v")) {
                 log.log(Level.INFO, "Using cli argument -v=" + cmd.getOptionValue("v"));
                 // Whatever you want to do with the setting goes here
-            } else {
-                log.log(Level.SEVERE, "MIssing v option");
-                help();
             }
             if (cmd.hasOption("login")) {
+                System.out.println(cmd.getOptionValue("login"));
             }
 
             if (cmd.hasOption("pass")) {
