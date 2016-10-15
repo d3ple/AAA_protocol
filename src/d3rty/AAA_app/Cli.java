@@ -21,8 +21,8 @@ public class Cli {
         this.args = args;
 
         options.addOption("v", "var", true, "Here you can set parameter");
-        options.addOption("login", "login", true, "your login");
-        options.addOption("pass", "password", true, "your password");
+        options.addOption("l", "login", true, "your login");
+        options.addOption("p", "password", true, "your password");
         options.addOption("res", "resource", true, "requested resource (e.g. 'AB.CD.E')");
         options.addOption("role", "role", true, "your role on this resource (READ/WRITE/EXECUTE)");
         options.addOption("ds", "datestart", true, "date of start using [YYYY-MM-DD]");
@@ -38,33 +38,54 @@ public class Cli {
         try {
             cmd = parser.parse(options, args);
 
+            if (cmd.hasOption("l")) {
+                String[] arguments = cmd.getOptionValues("l");
+                System.out.println("Login : " + arguments[0]);
+            }
+
             if (cmd.hasOption("h"))
                 help();
 
-            if (cmd.hasOption("login")) {
-
-                System.out.println(cmd.getOptionValue("login"));
-            }
-
-            if (cmd.hasOption("pass")) {
+            if (cmd.hasOption("p")) {
+                String[] arguments = cmd.getOptionValues("p");
+                System.out.println("Password : " + arguments[0]);
             }
 
             if (cmd.hasOption("res")) {
+                String[] arguments = cmd.getOptionValues("res");
+                System.out.println("Resurse : " + arguments[0]);
+
             }
 
             if (cmd.hasOption("role")) {
+                String[] arguments = cmd.getOptionValues("role");
+                System.out.println("Role : " + arguments[0]);
+
             }
 
             if (cmd.hasOption("ds")) {
+                String[] arguments = cmd.getOptionValues("ds");
+                System.out.println("Date Start : " + arguments[0]);
+
             }
 
             if (cmd.hasOption("de")) {
+                String[] arguments = cmd.getOptionValues("de");
+                System.out.println("Date End : " + arguments[0]);
+
             }
 
             if (cmd.hasOption("val")) {
+                String[] arguments = cmd.getOptionValues("val");
+                System.out.println("Values : " + arguments[0]);
+
             }
 
-        } catch (ParseException e) {
+
+
+
+        }
+        catch (ParseException e) {
             log.log(Level.SEVERE, "Failed to parse comand line properties", e);
             help();
         }

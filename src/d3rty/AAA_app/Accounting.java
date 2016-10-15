@@ -2,9 +2,6 @@ package d3rty.AAA_app;
 
 import java.util.Date;
 
-/**
- * Created by Andrew on 30.09.2016.
- */
 public class Accounting {
 
     public int ID;
