@@ -1,17 +1,24 @@
 package d3rty.AAA_app;
 
 
-public class parse {
+public class Parse {
     private String U_login;
     private String U_password;
     private String U_role;
     private String U_resurse;
 
-    public parse(String U_login, String U_password, String U_role, String U_resourse) {
+    public Parse(String U_login, String U_password, String U_role, String U_resourse) {
         this.U_login = U_login;
         this.U_password = U_password;
         this.U_resurse = U_resourse;
         this.U_role = U_role;
+    }
+
+    public Parse() {
+        this.U_login = null;
+        this.U_password = null;
+        this.U_resurse = null;
+        this.U_role = null;
     }
 
     public String getU_login() {
