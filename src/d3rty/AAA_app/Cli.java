@@ -1,15 +1,10 @@
 package d3rty.AAA_app;
 
 
+import org.apache.commons.cli.*;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-import org.apache.commons.cli.BasicParser;
-import org.apache.commons.cli.CommandLine;
-import org.apache.commons.cli.CommandLineParser;
-import org.apache.commons.cli.HelpFormatter;
-import org.apache.commons.cli.Options;
-import org.apache.commons.cli.ParseException;
 
 public class Cli {
     private static final Logger log = Logger.getLogger(Cli.class.getName());
@@ -31,35 +26,33 @@ public class Cli {
         options.addOption("h", "help", false, "show help");
     }
 
-    public void parse() {
-        CommandLineParser parser = new BasicParser();
-
+    public Parse parse() {
+        CommandLineParser parser = new PosixParser();
+        Parse Data = new Parse();
         CommandLine cmd = null;
         try {
             cmd = parser.parse(options, args);
 
             if (cmd.hasOption("l")) {
-                String[] arguments = cmd.getOptionValues("l");
-                System.out.println("Login : " + arguments[0]);
+                Data.setU_login(cmd.getOptionValue("l"));
+                System.out.println("Login : " + Data.getU_login());
             }
 
-            if (cmd.hasOption("h"))
-                help();
 
             if (cmd.hasOption("p")) {
-                String[] arguments = cmd.getOptionValues("p");
-                System.out.println("Password : " + arguments[0]);
+                Data.setU_password(cmd.getOptionValue("p"));
+                System.out.println("Password : " + Data.getU_password());
             }
 
             if (cmd.hasOption("res")) {
-                String[] arguments = cmd.getOptionValues("res");
-                System.out.println("Resurse : " + arguments[0]);
+                Data.setU_resurse(cmd.getOptionValue("res"));
+                System.out.println("Resurse : " + Data.getU_resurse());
 
             }
 
             if (cmd.hasOption("role")) {
-                String[] arguments = cmd.getOptionValues("role");
-                System.out.println("Role : " + arguments[0]);
+                Data.setU_role(cmd.getOptionValue("role"));
+                System.out.println("Role : " + Data.getU_role());
 
             }
 
@@ -81,18 +74,19 @@ public class Cli {
 
             }
 
+            if (cmd.hasOption("h") || Data.isEmpty())
+                help();
 
 
-
-        }
-        catch (ParseException e) {
-            log.log(Level.SEVERE, "Failed to parse comand line properties", e);
+        } catch (ParseException e) {
+            log.log(Level.SEVERE, "Failed to Parse comand line properties", e);
             help();
         }
+        return Data;
     }
 
     private void help() {
-        // This prints out some help
+
         HelpFormatter formater = new HelpFormatter();
 
         formater.printHelp("Main", options);
