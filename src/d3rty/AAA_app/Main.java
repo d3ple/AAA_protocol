@@ -83,7 +83,8 @@ public class Main {
 
     private static Boolean CheckPassword(ArrayList<User> users, Parse parse) {
         for (User user : users) {
-            if (CheckLogin(users, parse) && ((MD5(MD5(parse.getU_password())+user.getSalt())).equals(user.password))) {
+            String HASH = (MD5(MD5(parse.getU_password())+user.getSalt()));
+            if (CheckLogin(users, parse) && (HASH.equals(user.password))) {
                 return true;
             }
 
