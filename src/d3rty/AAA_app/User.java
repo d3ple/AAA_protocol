@@ -20,4 +20,8 @@ public class User {
         this.password =  MD5(MD5(password) + Salt);
 
     }
+
+    public String getSalt() {
+        return Salt;
+    }
 }

@@ -57,4 +57,11 @@ public class Parse {
         return ((U_role == null) && (U_resurse == null) && (U_password == null) && (U_login == null));
     }
 
+    public Boolean authentication() {
+        return ((U_login != null) && (U_password != null));
+    }
+    public Boolean authorization(){
+        return ((authentication() != null)&&(U_role != null) && (U_resurse != null));
+    }
+
 }
