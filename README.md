@@ -1,1 +1,7 @@
-Program for AAA protocol
+# AAA protocol
+---
+ Program using AAA protocol
+
+  - Authentication 
+  - Authorization 
+  - Accounting
