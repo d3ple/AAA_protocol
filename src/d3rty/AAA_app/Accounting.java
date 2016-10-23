@@ -1,22 +1,25 @@
 package d3rty.AAA_app;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Accounting {
 
-    public int ID;
-    public Role Role;
-    public int Amount;
-    public Date Date_st;
-    public Date Date_end;
+    //private int id;
+    private String role;
+    private String resource;
+    private LocalDate date_st;
+    private LocalDate date_end;
+    private long volume;
 
 
-    public Accounting(int ID , Role Role, int Amount, Date Date_st, Date Date_end) {
-        this.ID = ID;
-        this.Role  = Role;
-        this.Amount   = Amount;
-        this.Date_st  = Date_st;
-        this.Date_end = Date_end;
+    public Accounting(String role, String resource, LocalDate date_st, LocalDate date_end, long volume) {
+        //this.id = id;
+        this.role = role;
+        this.resource = resource;
+        this.date_st = date_st;
+        this.date_end = date_end;
+        this.volume = volume;
     }
+
 
 }
