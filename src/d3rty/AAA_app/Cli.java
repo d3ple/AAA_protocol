@@ -1,12 +1,13 @@
 package d3rty.AAA_app;
 
-
 import org.apache.commons.cli.*;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+
 public class Cli {
+
     private static final Logger log = Logger.getLogger(Cli.class.getName());
     private String[] args = null;
     private Options options = new Options();
@@ -15,7 +16,6 @@ public class Cli {
 
         this.args = args;
 
-        options.addOption("v", "var", true, "Here you can set parameter");
         options.addOption("l", "login", true, "your login");
         options.addOption("p", "password", true, "your password");
         options.addOption("res", "resource", true, "requested resource (e.g. 'AB.CD.E')");
@@ -26,70 +26,74 @@ public class Cli {
         options.addOption("h", "help", false, "show help");
     }
 
-    public Parse parse() {
-        CommandLineParser parser = new PosixParser();
-        Parse Data = new Parse();
-        CommandLine cmd = null;
+
+    public ParsedUserData parse() {
+
+        CommandLineParser parser = new DefaultParser();
+        ParsedUserData cmdData = new ParsedUserData();
+        CommandLine cmd;
+
         try {
             cmd = parser.parse(options, args);
 
             if (cmd.hasOption("l")) {
-                Data.setU_login(cmd.getOptionValue("l"));
-                System.out.println("Login : " + Data.getU_login());
+                cmdData.setLogin(cmd.getOptionValue("l"));
+                System.out.println("Login : " + cmdData.getLogin());
             }
 
 
             if (cmd.hasOption("p")) {
-                Data.setU_password(cmd.getOptionValue("p"));
-                System.out.println("Password : " + Data.getU_password());
+                cmdData.setPassword(cmd.getOptionValue("p"));
+                System.out.println("Password : " + cmdData.getPassword());
             }
 
             if (cmd.hasOption("res")) {
-                Data.setU_resurse(cmd.getOptionValue("res"));
-                System.out.println("Resurse : " + Data.getU_resurse());
+                cmdData.setResource(cmd.getOptionValue("res"));
+                System.out.println("Resource : " + cmdData.getResource());
 
             }
 
             if (cmd.hasOption("role")) {
-                Data.setU_role(cmd.getOptionValue("role"));
-                System.out.println("Role : " + Data.getU_role());
+                cmdData.setRole(cmd.getOptionValue("role"));
+                System.out.println("Role : " + cmdData.getRole());
 
             }
 
             if (cmd.hasOption("ds")) {
-                String[] arguments = cmd.getOptionValues("ds");
-                System.out.println("Date Start : " + arguments[0]);
+                cmdData.setDate_st(cmd.getOptionValue("ds"));
+                System.out.println("Date Start : " + cmdData.getDate_st());
 
             }
 
             if (cmd.hasOption("de")) {
-                String[] arguments = cmd.getOptionValues("de");
-                System.out.println("Date End : " + arguments[0]);
+                cmdData.setDate_end(cmd.getOptionValue("de"));
+                System.out.println("Date Start : " + cmdData.getDate_end());
 
             }
 
-            if (cmd.hasOption("val")) {
-                String[] arguments = cmd.getOptionValues("val");
-                System.out.println("Values : " + arguments[0]);
+            if (cmd.hasOption("vol")) {
+                cmdData.setVolume(cmd.getOptionValue("vol"));
+                System.out.println("Volume : " + cmdData.getVolume());
 
             }
 
-            if (cmd.hasOption("h") || Data.isEmpty())
+            if (cmd.hasOption("h") || cmdData.isEmpty()) {
                 help();
+            }
 
 
         } catch (ParseException e) {
-            log.log(Level.SEVERE, "Failed to Parse comand line properties", e);
+            log.log(Level.SEVERE, "Failed to Parse command line properties", e);
             help();
         }
-        return Data;
+
+        return cmdData;
     }
 
     private void help() {
 
-        HelpFormatter formater = new HelpFormatter();
-
-        formater.printHelp("Main", options);
+        HelpFormatter formatter = new HelpFormatter();
+        formatter.printHelp("Allowed options", options);
         System.exit(0);
     }
 }
