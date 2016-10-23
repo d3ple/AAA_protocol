@@ -1,6 +1,6 @@
 package d3rty.AAA_app;
 
-public enum Enum {
+public enum AvailableRoles {
     READ,
     WRITE,
     EXECUTE;
