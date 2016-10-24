@@ -7,17 +7,17 @@ public class ParsedUserData {
     private String password;
     private String role;
     private String resource;
-    private String date_st;
-    private String date_end;
+    private String dateSt;
+    private String dateEnd;
     private String volume;
 
-    public ParsedUserData(String login, String password, String role, String resource, String date_st, String date_end, String volume) {
+    public ParsedUserData(String login, String password, String role, String resource, String dateSt, String dateEnd, String volume) {
         this.login = login;
         this.password = password;
         this.resource = resource;
         this.role = role;
-        this.date_st = date_st;
-        this.date_end = date_end;
+        this.dateSt = dateSt;
+        this.dateEnd = dateEnd;
         this.volume = volume;
     }
 
@@ -26,8 +26,8 @@ public class ParsedUserData {
         this.password = null;
         this.resource = null;
         this.role = null;
-        this.date_st = null;
-        this.date_end = null;
+        this.dateSt = null;
+        this.dateEnd = null;
         this.volume = null;
     }
 
@@ -64,20 +64,20 @@ public class ParsedUserData {
         return resource;
     }
 
-    public void setDate_st(String date_st) {
-        this.date_st = date_st;
+    public void setDateSt(String dateSt) {
+        this.dateSt = dateSt;
     }
 
-    public String getDate_st() {
-        return date_st;
+    public String getDateSt() {
+        return dateSt;
     }
 
-    public void setDate_end(String date_end) {
-        this.date_end = date_end;
+    public void setDateEnd(String dateEnd) {
+        this.dateEnd = dateEnd;
     }
 
-    public String getDate_end() {
-        return date_end;
+    public String getDateEnd() {
+        return dateEnd;
     }
 
     public void setVolume(String volume) {
@@ -103,6 +103,6 @@ public class ParsedUserData {
     }
 
     public Boolean isAccountingPossible() {
-        return ((isAuthorizationPossible()) && (date_st != null) && (date_end != null) && (volume != null));
+        return ((isAuthorizationPossible()) && (dateSt != null) && (dateEnd != null) && (volume != null));
     }
 }

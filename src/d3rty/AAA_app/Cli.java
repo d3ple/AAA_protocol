@@ -60,14 +60,14 @@ public class Cli {
             }
 
             if (cmd.hasOption("ds")) {
-                cmdData.setDate_st(cmd.getOptionValue("ds"));
-                System.out.println("Date Start : " + cmdData.getDate_st());
+                cmdData.setDateSt(cmd.getOptionValue("ds"));
+                System.out.println("Date Start : " + cmdData.getDateSt());
 
             }
 
             if (cmd.hasOption("de")) {
-                cmdData.setDate_end(cmd.getOptionValue("de"));
-                System.out.println("Date Start : " + cmdData.getDate_end());
+                cmdData.setDateEnd(cmd.getOptionValue("de"));
+                System.out.println("Date Start : " + cmdData.getDateEnd());
 
             }
 
