@@ -5,19 +5,17 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 
-public class Try_AAA {
+public class TryAAA {
 
     public static void tryAuthentication(ArrayList<User> userList, ParsedUserData parsed) {
-        if (!Check.CheckLogin(userList, parsed)) {
+        if (!Check.checkLogin(userList, parsed)) {
             System.out.println("Unknown login");
             System.exit(1);
+        } else if (!Check.CheckPassword(userList, parsed)) {
+            System.out.println("Unknown password");
+            System.exit(2);
         } else {
-            if (!Check.CheckPassword(userList, parsed)) {
-                System.out.println("Unknown password");
-                System.exit(2);
-            } else {
-                System.out.println("Authentication complete");
-            }
+            System.out.println("Authentication complete");
         }
     }
 
@@ -26,13 +24,11 @@ public class Try_AAA {
         if (!Check.CheckRole(roleList, parsed)) {
             System.out.println("Unknown role");
             System.exit(3);
+        } else if (!Check.CheckRoleAndResource(roleList, parsed)) {
+            System.out.println("No access");
+            System.exit(4);
         } else {
-            if (!Check.CheckRoleAndResource(roleList, parsed)) {
-                System.out.println("No access");
-                System.exit(4);
-            } else {
-                System.out.println("Authorization complete");
-            }
+            System.out.println("Authorization complete");
         }
     }
 
@@ -43,8 +39,8 @@ public class Try_AAA {
         LocalDate endDay = null;
         long volume = 0;
         try {
-            startDay = LocalDate.parse(parsed.getDate_st(), formatter);
-            endDay = LocalDate.parse(parsed.getDate_end(), formatter);
+            startDay = LocalDate.parse(parsed.getDateSt(), formatter);
+            endDay = LocalDate.parse(parsed.getDateEnd(), formatter);
         } catch (java.time.format.DateTimeParseException e) {
             System.out.println(e);
             System.exit(5);
@@ -59,7 +55,6 @@ public class Try_AAA {
 
         ArrayList<Accounting> accountingList = new ArrayList<>();
         accountingList.add(new Accounting(parsed.getRole(), parsed.getResource(), startDay, endDay, volume));
-        //System.out.println(accountingList.get(0));
     }
 
 

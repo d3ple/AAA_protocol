@@ -18,22 +18,22 @@ public class Main {
         roleList.add(new Role(4, userList.get(0), "EXECUTE", "a.bc"));
 
 
-        ParsedUserData parsed_data = new Cli(args).parse();
-        if (parsed_data.isEmpty()) {
+        ParsedUserData parsedData = new Cli(args).parse();
+        if (parsedData.isEmpty()) {
             System.exit(0);
         } else {
-            if (!parsed_data.isAuthenticationPossible()) {
+            if (!parsedData.isAuthenticationPossible()) {
                 System.exit(0);
             } else {
-                Try_AAA.tryAuthentication(userList, parsed_data);
-                if (!parsed_data.isAuthorizationPossible()) {
+                TryAAA.tryAuthentication(userList, parsedData);
+                if (!parsedData.isAuthorizationPossible()) {
                     System.exit(0);
                 } else {
-                    Try_AAA.tryAuthorization(roleList, parsed_data);
-                    if (!parsed_data.isAccountingPossible()) {
+                    TryAAA.tryAuthorization(roleList, parsedData);
+                    if (!parsedData.isAccountingPossible()) {
                         System.exit(0);
                     } else {
-                        Try_AAA.tryAccounting(parsed_data);
+                        TryAAA.tryAccounting(parsedData);
                     }
                 }
             }
