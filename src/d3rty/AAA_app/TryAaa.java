@@ -5,13 +5,13 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 
-public class TryAAA {
+public class TryAaa {
 
     public static void tryAuthentication(ArrayList<User> userList, ParsedUserData parsed) {
-        if (!Check.checkLogin(userList, parsed)) {
+        if (!Checking.checkLogin(userList, parsed)) {
             System.out.println("Unknown login");
             System.exit(1);
-        } else if (!Check.CheckPassword(userList, parsed)) {
+        } else if (!Checking.checkPassword(userList, parsed)) {
             System.out.println("Unknown password");
             System.exit(2);
         } else {
@@ -21,10 +21,10 @@ public class TryAAA {
 
 
     public static void tryAuthorization(ArrayList<Role> roleList, ParsedUserData parsed) {
-        if (!Check.CheckRole(roleList, parsed)) {
+        if (!Checking.checkRole(roleList, parsed)) {
             System.out.println("Unknown role");
             System.exit(3);
-        } else if (!Check.CheckRoleAndResource(roleList, parsed)) {
+        } else if (!Checking.checkRoleAndResource(roleList, parsed)) {
             System.out.println("No access");
             System.exit(4);
         } else {

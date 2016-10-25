@@ -1,27 +1,38 @@
 package d3rty.AAA_app;
 
-import static d3rty.AAA_app.Security.MD5;
-import static d3rty.AAA_app.Security.Salt;
-
 
 public class User {
-    public int id;
-    public String name;
-    public String login;
-    public String password;
-    public String Salt;
+    private int id;
+    private String name;
+    private String login;
+    private String password;
+    private String salt;
 
     public User(int id, String name, String login, String password) {
-
         this.id = id;
         this.name = name;
         this.login = login;
-        Salt = Salt();
-        this.password = MD5(MD5(password) + Salt);
+        this.salt = Security.generateSalt();
+        this.password = Security.generateMd5(Security.generateMd5(password) + salt);
+    }
 
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public String getPassword() {
+        return password;
     }
 
     public String getSalt() {
-        return Salt;
+        return salt;
     }
 }

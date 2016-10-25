@@ -10,7 +10,6 @@ public class Accounting {
     private LocalDate dateEnd;
     private long volume;
 
-
     public Accounting(String role, String resource, LocalDate dateSt, LocalDate dateEnd, long volume) {
         this.role = role;
         this.resource = resource;
@@ -19,5 +18,24 @@ public class Accounting {
         this.volume = volume;
     }
 
+    public String getRole() {
+        return role;
+    }
+
+    public String getResource() {
+        return resource;
+    }
+
+    public LocalDate getDateSt() {
+        return dateSt;
+    }
+
+    public LocalDate getDateEnd() {
+        return dateEnd;
+    }
+
+    public long getVolume() {
+        return volume;
+    }
 
 }

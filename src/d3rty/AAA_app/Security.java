@@ -7,12 +7,12 @@ import java.security.SecureRandom;
 
 public class Security {
 
-    public static String Salt() {
+    public static String generateSalt() {
         SecureRandom random = new SecureRandom();
         return new BigInteger(130, random).toString();
     }
 
-    public static String MD5(String message) {
+    public static String generateMd5(String message) {
         try {
             java.security.MessageDigest md = java.security.MessageDigest.getInstance("MD5");
             byte[] array = md.digest(message.getBytes());
@@ -22,10 +22,8 @@ public class Security {
             }
             return sb.toString();
         } catch (NoSuchAlgorithmException e) {
-            System.out.println("Wrong MD5 Hashing");
-            e.printStackTrace();
+            return e.toString();
         }
-        return null;
     }
 
 }
