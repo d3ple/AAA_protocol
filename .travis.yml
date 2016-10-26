@@ -3,6 +3,7 @@ jdk:
   - oraclejdk8
 before_script:
     - bash BUILD.sh
+    - chmod +x RUN.sh
     - bash RUN.sh
 script:
     - bash TEST.sh
