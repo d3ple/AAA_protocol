@@ -30,3 +30,7 @@ java -cp "out\artifacts\AAA_app_jar\AAA_app.jar" com.d3rty.aaa_app.Main -l jdoe 
 echo !!! %errorlevel%
 java -cp "out\artifacts\AAA_app_jar\AAA_app.jar" com.d3rty.aaa_app.Main -l jdoe -p sup3rpaZZ -role READ -res a.b -ds 2015-01-01 -de 2015-12-31 -vol XXX > NUL
 echo !!! %errorlevel%
+java -cp "out\artifacts\AAA_app_jar\AAA_app.jar" com.d3rty.aaa_app.Main -l xxx -p xxx -role READ -res xxx -ds 2015-01-01 -de 2015-12-31 -vol XXX > NUL
+echo !!! %errorlevel%
+java -cp "out\artifacts\AAA_app_jar\AAA_app.jar" com.d3rty.aaa_app.Main -l xxx -p xxx -role READ -res xxx > NUL
+echo !!! %errorlevel%

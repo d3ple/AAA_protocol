@@ -20,8 +20,11 @@ public class Main {
         if (parsedData.isEmpty()) {
             System.exit(0);
         } else if (parsedData.isAccountingPossible()) {
+            TryAaa.tryAuthentication(userList, parsedData);
+            TryAaa.tryAuthorization(roleList, parsedData);
             TryAaa.tryAccounting(parsedData);
         } else if (parsedData.isAuthorizationPossible()) {
+            TryAaa.tryAuthentication(userList, parsedData);
             TryAaa.tryAuthorization(roleList, parsedData);
         } else if (parsedData.isAuthenticationPossible()) {
             TryAaa.tryAuthentication(userList, parsedData);
