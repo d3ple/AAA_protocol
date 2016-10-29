@@ -1,4 +1,4 @@
-package d3rty.AAA_app;
+package com.d3rty.aaa_app;
 
 import java.math.BigInteger;
 import java.security.NoSuchAlgorithmException;
@@ -22,7 +22,7 @@ public class Security {
             }
             return sb.toString();
         } catch (NoSuchAlgorithmException e) {
-            return e.toString();
+            throw new RuntimeException(e);
         }
     }
 

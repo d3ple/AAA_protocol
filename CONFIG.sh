@@ -1,4 +1,4 @@
-MAIN="d3rty.AAA_app.Main"
+MAIN="com.d3rty.aaa_app.Main"
 LIB="lib/commons-cli-1.3.1.jar"
 SRC=".src/"
 OUT="out"

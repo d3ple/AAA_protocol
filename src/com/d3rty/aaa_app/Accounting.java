@@ -1,4 +1,4 @@
-package d3rty.AAA_app;
+package com.d3rty.aaa_app;
 
 import java.time.LocalDate;
 
