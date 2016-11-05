@@ -29,4 +29,6 @@ public class Role {
     public String getResource() {
         return resource;
     }
+
+
 }
