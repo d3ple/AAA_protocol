@@ -2,6 +2,10 @@ package com.d3rty.aaa_app;
 
 import java.util.ArrayList;
 
+import org.apache.logging.log4j.*;
+
+import static com.d3rty.aaa_app.TryAaa.log;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -18,6 +22,7 @@ public class Main {
 
         ParsedUserData parsedData = new Cli(args).parse();
         if (parsedData.isEmpty()) {
+            log.info("exit with code 0");
             System.exit(0);
         } else if (parsedData.isAccountingPossible()) {
             TryAaa.tryAuthentication(userList, parsedData);
