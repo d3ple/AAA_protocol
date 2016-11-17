@@ -3,32 +3,33 @@ package com.d3rty.aaa_app;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-
+import  org.apache.logging.log4j.*;
 
 public class TryAaa {
+    static final Logger log = LogManager.getLogger(TryAaa.class);
 
     public static void tryAuthentication(ArrayList<User> userList, ParsedUserData parsed) {
         if (!Checking.checkLogin(userList, parsed)) {
-            System.out.println("Unknown login");
+            log.error("Login:" + parsed.getLogin() + " is Unknown user. Exit code : 1");
             System.exit(1);
         } else if (!Checking.checkPassword(userList, parsed)) {
-            System.out.println("Unknown password");
+            log.error("Password:" + parsed.getPassword() + " is Wrong password. Exit code : 2");
             System.exit(2);
         } else {
-            System.out.println("Authentication complete");
+            log.info("Authentication complete");
         }
     }
 
 
     public static void tryAuthorization(ArrayList<Role> roleList, ParsedUserData parsed) {
         if (!Checking.checkRole(roleList, parsed)) {
-            System.out.println("Unknown role");
+            log.error("role :" + parsed.getRole() + "  is Wrong role. Exit code : 3");
             System.exit(3);
         } else if (!Checking.checkRoleAndResource(roleList, parsed)) {
-            System.out.println("No access");
+            log.error("Resource: " + parsed.getResource() + " is Wrong resource. Exit code : 4");
             System.exit(4);
         } else {
-            System.out.println("Authorization complete");
+            log.info("Authorization complete");
         }
     }
 
@@ -42,16 +43,17 @@ public class TryAaa {
             startDay = LocalDate.parse(parsed.getDateSt(), formatter);
             endDay = LocalDate.parse(parsed.getDateEnd(), formatter);
         } catch (java.time.format.DateTimeParseException e) {
-            System.out.println(e);
+            log.error("Period: " + parsed.getDateSt() + " - " + parsed.getDateEnd() +
+                    " is invalid activity. Exit code: 5");
             System.exit(5);
         }
         try {
             volume = Long.valueOf(parsed.getVolume());
         } catch (java.lang.NumberFormatException e) {
-            System.out.println(e);
+            log.error("Volume: " + parsed.getVolume() + " is invalid activity. Exit code: 5");
             System.exit(5);
         }
-        System.out.println("Accounting complete");
+        log.info("Accounting complete");
 
         ArrayList<Accounting> accountingList = new ArrayList<>();
         accountingList.add(new Accounting(parsed.getRole(), parsed.getResource(), startDay, endDay, volume));
