@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class Checking {
 
-    static final Logger log = LogManager.getLogger(Aaa.class);
+    static final Logger log = LogManager.getLogger(Checking.class);
 
     public static Boolean checkLogin(String username) {
         if (DbManager.getUserByLogin(username) != null) {

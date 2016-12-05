@@ -5,7 +5,7 @@ import org.apache.logging.log4j.Logger;
 
 public class Main {
 
-    static final Logger log = LogManager.getLogger(Aaa.class);
+    static final Logger log = LogManager.getLogger(Main.class);
 
     public static void main(String[] args) {
         DbManager.migrate();

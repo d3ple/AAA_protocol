@@ -10,7 +10,7 @@ import java.security.SecureRandom;
 
 public class Security {
 
-    static final Logger log = LogManager.getLogger(Aaa.class);
+    static final Logger log = LogManager.getLogger(Security.class);
 
     public static String generateSalt() {
         SecureRandom random = new SecureRandom();
