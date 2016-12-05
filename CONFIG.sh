@@ -1,5 +1,6 @@
 MAIN="com.d3rty.aaa_app.Main"
-LIB="lib/commons-cli-1.3.1.jar"
+LIB="lib/*"
+RES="src/resources/*"
 SRC=".src/"
 OUT="out"
 OUT_JAR="$OUT/AAA_app.jar"

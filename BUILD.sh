@@ -7,6 +7,8 @@ cp -r $LIB $OUT_LIB
 
 mkdir -p $OUT_CLS
 
+cp -r $RES $OUT_CLS
+
 find . -name "*.java" | xargs javac -classpath "$LIB" -d $OUT_CLS -sourcepath $SRC
 
 jar -cfe $OUT_JAR $MAIN -C $OUT_CLS .
