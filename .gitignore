@@ -48,7 +48,6 @@ Temporary Items
 
 #IntelliJ IDEA Project files
 *.iml
-*.xml
 .idea/
 *.class
 *.log
