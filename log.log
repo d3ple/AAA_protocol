@@ -1,0 +1,120 @@
+2016-12-05 21:59:03,555 INFO c.d.a.TryAaa [main] Login: jdoe 
+2016-12-05 21:59:03,559 INFO c.d.a.TryAaa [main] Password: sup3rpaZZ 
+2016-12-05 21:59:03,560 INFO c.d.a.TryAaa [main] Resource: a.bc 
+2016-12-05 21:59:03,560 INFO c.d.a.TryAaa [main] Role: EXECUTE 
+2016-12-05 21:59:03,560 INFO c.d.a.TryAaa [main] Date Start: 2015-05-01 
+2016-12-05 21:59:03,561 INFO c.d.a.TryAaa [main] Date End: 2015-05-02 
+2016-12-05 21:59:03,561 INFO c.d.a.TryAaa [main] Volume: 100 
+2016-12-05 21:59:03,564 INFO c.d.a.TryAaa [main] Username OK 
+2016-12-05 21:59:03,578 INFO c.d.a.TryAaa [main] Password OK 
+2016-12-05 21:59:03,578 INFO c.d.a.TryAaa [main] Authentication complete 
+2016-12-05 21:59:03,582 INFO c.d.a.TryAaa [main] Role OK 
+2016-12-05 21:59:03,633 INFO c.d.a.TryAaa [main] Subresource checking OK 
+2016-12-05 21:59:03,633 INFO c.d.a.TryAaa [main] Permission OK 
+2016-12-05 21:59:03,634 INFO c.d.a.TryAaa [main] Authorization complete 
+2016-12-05 21:59:03,801 INFO c.d.a.TryAaa [main] Date OK 
+2016-12-05 21:59:03,801 INFO c.d.a.TryAaa [main] Volume OK 
+2016-12-05 21:59:03,808 INFO c.d.a.TryAaa [main] Accounting complete 
+22:04:03.339 [main] INFO  com.d3rty.aaa_app.Aaa - Login: jdoe
+22:04:03.342 [main] INFO  com.d3rty.aaa_app.Aaa - Password: sup3rpaZZ
+22:04:03.343 [main] INFO  com.d3rty.aaa_app.Aaa - Resource: a.bc
+22:04:03.343 [main] INFO  com.d3rty.aaa_app.Aaa - Role: EXECUTE
+22:04:03.343 [main] INFO  com.d3rty.aaa_app.Aaa - Date Start: 2015-05-01
+22:04:03.343 [main] INFO  com.d3rty.aaa_app.Aaa - Date End: 2015-05-02
+22:04:03.344 [main] INFO  com.d3rty.aaa_app.Aaa - Volume: 100
+22:04:03.351 [main] INFO  com.d3rty.aaa_app.Aaa - Username OK
+22:04:03.363 [main] INFO  com.d3rty.aaa_app.Aaa - Password OK
+22:04:03.364 [main] INFO  com.d3rty.aaa_app.Aaa - Authentication complete
+22:04:03.368 [main] INFO  com.d3rty.aaa_app.Aaa - Role OK
+22:04:03.369 [main] INFO  com.d3rty.aaa_app.Aaa - Subresource checking OK
+22:04:03.369 [main] INFO  com.d3rty.aaa_app.Aaa - Permission OK
+22:04:03.370 [main] INFO  com.d3rty.aaa_app.Aaa - Authorization complete
+22:04:03.527 [main] INFO  com.d3rty.aaa_app.Aaa - Date OK
+22:04:03.527 [main] INFO  com.d3rty.aaa_app.Aaa - Volume OK
+22:04:03.534 [main] INFO  com.d3rty.aaa_app.Aaa - Accounting complete
+2016-12-05 22:14:50,211 INFO c.d.a.TryAaa [main] Login: jdoe 
+2016-12-05 22:14:50,216 INFO c.d.a.TryAaa [main] Password: sup3rpaZZ 
+2016-12-05 22:14:50,217 INFO c.d.a.TryAaa [main] Resource: a.bc 
+2016-12-05 22:14:50,217 INFO c.d.a.TryAaa [main] Role: EXECUTE 
+2016-12-05 22:14:50,217 INFO c.d.a.TryAaa [main] Date Start: 2015-05-01 
+2016-12-05 22:14:50,218 INFO c.d.a.TryAaa [main] Date End: 2015-05-02 
+2016-12-05 22:14:50,218 INFO c.d.a.TryAaa [main] Volume: 100 
+2016-12-05 22:14:50,222 INFO c.d.a.TryAaa [main] Username OK 
+2016-12-05 22:14:50,225 INFO c.d.a.TryAaa [main] Password OK 
+2016-12-05 22:14:50,225 INFO c.d.a.TryAaa [main] Authentication complete 
+2016-12-05 22:14:50,228 INFO c.d.a.TryAaa [main] Role OK 
+2016-12-05 22:14:50,230 INFO c.d.a.TryAaa [main] Subresource checking OK 
+2016-12-05 22:14:50,230 INFO c.d.a.TryAaa [main] Permission OK 
+2016-12-05 22:14:50,230 INFO c.d.a.TryAaa [main] Authorization complete 
+2016-12-05 22:14:50,342 INFO c.d.a.TryAaa [main] Date OK 
+2016-12-05 22:14:50,342 INFO c.d.a.TryAaa [main] Volume OK 
+2016-12-05 22:14:50,342 INFO c.d.a.TryAaa [main] Accounting complete 
+2016-12-05 22:23:42,033 INFO c.d.a.TryAaa [main] Login: jdoe 
+2016-12-05 22:23:42,095 INFO c.d.a.TryAaa [main] Password: sup3rpaZZ 
+2016-12-05 22:23:42,095 INFO c.d.a.TryAaa [main] Resource: a.bc 
+2016-12-05 22:23:42,095 INFO c.d.a.TryAaa [main] Role: EXECUTE 
+2016-12-05 22:23:42,095 INFO c.d.a.TryAaa [main] Date Start: 2015-05-01 
+2016-12-05 22:23:42,095 INFO c.d.a.TryAaa [main] Date End: 2015-05-02 
+2016-12-05 22:23:42,095 INFO c.d.a.TryAaa [main] Volume: 100f 
+2016-12-05 22:23:42,095 INFO c.d.a.TryAaa [main] Username OK 
+2016-12-05 22:23:42,095 INFO c.d.a.TryAaa [main] Password OK 
+2016-12-05 22:23:42,095 INFO c.d.a.TryAaa [main] Authentication complete 
+2016-12-05 22:23:42,117 INFO c.d.a.TryAaa [main] Role OK 
+2016-12-05 22:23:42,117 INFO c.d.a.TryAaa [main] Subresource checking OK 
+2016-12-05 22:23:42,117 INFO c.d.a.TryAaa [main] Permission OK 
+2016-12-05 22:23:42,117 INFO c.d.a.TryAaa [main] Authorization complete 
+2016-12-05 22:23:42,195 INFO c.d.a.TryAaa [main] Date OK 
+2016-12-05 22:23:42,195 ERROR c.d.a.TryAaa [main] "100f" is invalid volume. Exit code: 5 
+2016-12-05 22:24:24,522 INFO c.d.a.TryAaa [main] Login: jdoe 
+2016-12-05 22:24:24,522 INFO c.d.a.TryAaa [main] Password: sup3rpaZZ 
+2016-12-05 22:24:24,522 INFO c.d.a.TryAaa [main] Resource: a.bc 
+2016-12-05 22:24:24,522 INFO c.d.a.TryAaa [main] Role: EXECUTE 
+2016-12-05 22:24:24,522 INFO c.d.a.TryAaa [main] Date Start: 2015-05-01 
+2016-12-05 22:24:24,522 INFO c.d.a.TryAaa [main] Date End: 2015-05-02 
+2016-12-05 22:24:24,522 INFO c.d.a.TryAaa [main] Volume: 100 
+2016-12-05 22:24:24,522 INFO c.d.a.TryAaa [main] Username OK 
+2016-12-05 22:24:24,522 INFO c.d.a.TryAaa [main] Password OK 
+2016-12-05 22:24:24,522 INFO c.d.a.TryAaa [main] Authentication complete 
+2016-12-05 22:24:24,538 INFO c.d.a.TryAaa [main] Role OK 
+2016-12-05 22:24:24,538 INFO c.d.a.TryAaa [main] Subresource checking OK 
+2016-12-05 22:24:24,538 INFO c.d.a.TryAaa [main] Permission OK 
+2016-12-05 22:24:24,538 INFO c.d.a.TryAaa [main] Authorization complete 
+2016-12-05 22:24:24,654 INFO c.d.a.TryAaa [main] Date OK 
+2016-12-05 22:24:24,654 INFO c.d.a.TryAaa [main] Volume OK 
+2016-12-05 22:24:24,686 INFO c.d.a.TryAaa [main] Accounting complete 
+2016-12-05 22:34:38,362 INFO c.d.a.Aaa [main] Login: jdoe 
+2016-12-05 22:34:38,378 INFO c.d.a.Aaa [main] Password: sup3rpaZZ 
+2016-12-05 22:34:38,378 INFO c.d.a.Aaa [main] Resource: a.bc 
+2016-12-05 22:34:38,378 INFO c.d.a.Aaa [main] Role: EXECUTE 
+2016-12-05 22:34:38,378 INFO c.d.a.Aaa [main] Date Start: 2015-05-01 
+2016-12-05 22:34:38,378 INFO c.d.a.Aaa [main] Date End: 2015-05-02 
+2016-12-05 22:34:38,378 INFO c.d.a.Aaa [main] Volume: 100 
+2016-12-05 22:34:38,378 INFO c.d.a.Aaa [main] Username OK 
+2016-12-05 22:34:38,393 INFO c.d.a.Aaa [main] Password OK 
+2016-12-05 22:34:38,393 INFO c.d.a.Aaa [main] Authentication complete 
+2016-12-05 22:34:38,409 INFO c.d.a.Aaa [main] Role OK 
+2016-12-05 22:34:38,409 INFO c.d.a.Aaa [main] Subresource checking OK 
+2016-12-05 22:34:38,409 INFO c.d.a.Aaa [main] Permission OK 
+2016-12-05 22:34:38,409 INFO c.d.a.Aaa [main] Authorization complete 
+2016-12-05 22:34:38,594 INFO c.d.a.Aaa [main] Date OK 
+2016-12-05 22:34:38,594 INFO c.d.a.Aaa [main] Volume OK 
+2016-12-05 22:34:38,594 INFO c.d.a.Aaa [main] Accounting complete 
+2016-12-05 22:38:29,710 ERROR c.d.a.Aaa [main] Unable to obtain Jdbc connection from DataSource (jdbc:h2:.src/db/aaa) for user 'sa': Путь неявно является относительным для текущего рабочего каталога и не допустим в URL базы данных "jdbc:h2:.src/db/aaa". Используйте абсолютный путь, ~/name, ./name, или настройку baseDir.
+A file path that is implicitly relative to the current working directory is not allowed in the database URL "jdbc:h2:.src/db/aaa". Use an absolute path, ~/name, ./name, or the baseDir setting instead. [90011-193] 
+2016-12-05 22:38:48,990 INFO c.d.a.Aaa [main] Login: jdoe 
+2016-12-05 22:38:48,995 INFO c.d.a.Aaa [main] Password: sup3rpaZZ 
+2016-12-05 22:38:48,995 INFO c.d.a.Aaa [main] Resource: a.bc 
+2016-12-05 22:38:48,995 INFO c.d.a.Aaa [main] Role: EXECUTE 
+2016-12-05 22:38:48,996 INFO c.d.a.Aaa [main] Date Start: 2015-05-01 
+2016-12-05 22:38:48,996 INFO c.d.a.Aaa [main] Date End: 2015-05-02 
+2016-12-05 22:38:48,996 INFO c.d.a.Aaa [main] Volume: 100 
+2016-12-05 22:38:49,000 INFO c.d.a.Aaa [main] Username OK 
+2016-12-05 22:38:49,005 INFO c.d.a.Aaa [main] Password OK 
+2016-12-05 22:38:49,005 INFO c.d.a.Aaa [main] Authentication complete 
+2016-12-05 22:38:49,009 INFO c.d.a.Aaa [main] Role OK 
+2016-12-05 22:38:49,010 INFO c.d.a.Aaa [main] Subresource checking OK 
+2016-12-05 22:38:49,011 INFO c.d.a.Aaa [main] Permission OK 
+2016-12-05 22:38:49,011 INFO c.d.a.Aaa [main] Authorization complete 
+2016-12-05 22:38:49,147 INFO c.d.a.Aaa [main] Date OK 
+2016-12-05 22:38:49,147 INFO c.d.a.Aaa [main] Volume OK 
+2016-12-05 22:38:49,162 INFO c.d.a.Aaa [main] Accounting complete 
