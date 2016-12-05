@@ -1,4 +1,4 @@
-MAIN="com.d3rty.aaa_app.Main"
+MAIN="com.d3rty.aaaprotocol.Main"
 LIB="lib/*"
 RES="src/resources/*"
 SRC=".src/"

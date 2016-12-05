@@ -1,4 +1,4 @@
-package com.d3rty.aaa_app;
+package com.d3rty.aaaprotocol;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
