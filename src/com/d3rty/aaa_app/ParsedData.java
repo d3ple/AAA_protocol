@@ -1,7 +1,7 @@
 package com.d3rty.aaa_app;
 
 
-public class ParsedUserData {
+public class ParsedData {
 
     private String login;
     private String password;
@@ -11,17 +11,7 @@ public class ParsedUserData {
     private String dateEnd;
     private String volume;
 
-    public ParsedUserData(String login, String password, String role, String resource, String dateSt, String dateEnd, String volume) {
-        this.login = login;
-        this.password = password;
-        this.resource = resource;
-        this.role = role;
-        this.dateSt = dateSt;
-        this.dateEnd = dateEnd;
-        this.volume = volume;
-    }
-
-    public ParsedUserData() {
+    public ParsedData() {
         this.login = null;
         this.password = null;
         this.resource = null;
@@ -30,7 +20,6 @@ public class ParsedUserData {
         this.dateEnd = null;
         this.volume = null;
     }
-
 
     public void setLogin(String login) {
         this.login = login;
@@ -92,7 +81,6 @@ public class ParsedUserData {
     public Boolean isEmpty() {
         return ((role == null) && (resource == null) && (password == null) && (login == null));
     }
-
 
     public Boolean isAuthenticationPossible() {
         return ((login != null) && (password != null));

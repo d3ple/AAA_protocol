@@ -1,40 +1,49 @@
 package com.d3rty.aaa_app;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.ArrayList;
 
 
 public class Checking {
 
-    public static Boolean checkLogin(ArrayList<User> userList, ParsedUserData parsedData) {
-        for (User user : userList) {
-            if (parsedData.getLogin().equals(user.getLogin())) {
-                return true;
-            }
+    static final Logger log = LogManager.getLogger(Aaa.class);
+
+    public static Boolean checkLogin(String username) {
+        if (DbManager.getUserByLogin(username) != null) {
+            log.info("Username OK");
+            return true;
         }
         return false;
     }
 
-    public static Boolean checkPassword(ArrayList<User> userList, ParsedUserData parsedData) {
-        for (User user : userList) {
-            String hash = (Security.generateMd5(Security.generateMd5(parsedData.getPassword()) + user.getSalt()));
-            if ((parsedData.getLogin().equals(user.getLogin())) && (hash.equals(user.getPassword()))) {
-                return true;
-            }
+    public static Boolean checkPassword(DbManager conn, ParsedData parsedData) {
+        User user = conn.getUserByLogin(parsedData.getLogin());
+        String hash = (Security.generateMd5(Security.generateMd5(parsedData.getPassword()) + user.getSalt()));
+        if ((hash.equals(user.getPassword()))) {
+            log.info("Password OK");
+            return true;
         }
         return false;
     }
 
-    public static Boolean checkRole(ArrayList<Role> roleList, ParsedUserData parsedData) {
+    public static Boolean checkRole(ParsedData parsedData) {
+        User user = DbManager.getUserByLogin(parsedData.getLogin());
+        Role role = new Role();
+        role.setName(parsedData.getRole());
+
         ArrayList<String> aRoleList = new ArrayList<>();
         for (AvailableRoles aRole : AvailableRoles.values()) {
             aRoleList.add(aRole.name());
         }
         if (!aRoleList.contains(parsedData.getRole())) {
-            System.out.println("Unknown role");
+            log.error("\"" + parsedData.getRole() + "\"  invalid role. Exit code : 3");
             System.exit(3);
         } else {
-            for (Role role : roleList) {
-                if (parsedData.getRole().equals(role.getName())) {
+            for (Role r : DbManager.getPermissionByUserAndRole(user, role)) {
+                if (parsedData.getRole().equals(r.getName())) {
+                    log.info("Role OK");
                     return true;
                 }
             }
@@ -42,9 +51,13 @@ public class Checking {
         return false;
     }
 
-    public static Boolean checkRoleAndResource(ArrayList<Role> roleList, ParsedUserData parsedData) {
-        for (Role role : roleList) {
-            if (parsedData.getRole().equals(role.getName()) && isParentOf(role.getResource(), parsedData.getResource())) {
+    public static Boolean checkRoleAndResource(ParsedData parsedData) {
+        User user = DbManager.getUserByLogin(parsedData.getLogin());
+        Role role = new Role();
+        role.setName(parsedData.getRole());
+        for (Role r : DbManager.getPermissionByUserAndRole(user, role)) {
+            if (parsedData.getRole().equals(r.getName()) && isParentOf(r.getResource(), parsedData.getResource())) {
+                log.info("Permission OK");
                 return true;
             }
         }
@@ -63,6 +76,7 @@ public class Checking {
                 return false;
             }
         }
+        log.info("Subresource checking OK");
         return true;
     }
 

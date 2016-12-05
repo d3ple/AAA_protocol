@@ -2,17 +2,18 @@ package com.d3rty.aaa_app;
 
 import org.apache.commons.cli.*;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 
-public class Cli {
+public class Parsing {
 
-    private static final Logger log = Logger.getLogger(Cli.class.getName());
+    static final Logger log = LogManager.getLogger(Aaa.class);
+
     private String[] args = null;
     private Options options = new Options();
 
-    public Cli(String[] args) {
+    public Parsing(String[] args) {
         this.args = args;
         options.addOption("l", "login", true, "your login");
         options.addOption("p", "password", true, "your password");
@@ -24,45 +25,52 @@ public class Cli {
         options.addOption("h", "help", false, "show help");
     }
 
-    public ParsedUserData parse() {
+    public ParsedData parse() {
         CommandLineParser parser = new DefaultParser();
-        ParsedUserData cmdData = new ParsedUserData();
+        ParsedData cmdData = new ParsedData();
         CommandLine cmd;
         try {
             cmd = parser.parse(options, args);
             if (cmd.hasOption("l")) {
                 cmdData.setLogin(cmd.getOptionValue("l"));
-                System.out.println("Login : " + cmdData.getLogin());
+                System.out.println("Login: " + cmdData.getLogin());
+                log.info("Login: " + cmdData.getLogin());
             }
             if (cmd.hasOption("p")) {
                 cmdData.setPassword(cmd.getOptionValue("p"));
-                System.out.println("Password : " + cmdData.getPassword());
+                System.out.println("Password: " + cmdData.getPassword());
+                log.info("Password: " + cmdData.getPassword());
             }
             if (cmd.hasOption("res")) {
                 cmdData.setResource(cmd.getOptionValue("res"));
-                System.out.println("Resource : " + cmdData.getResource());
+                System.out.println("Resource: " + cmdData.getResource());
+                log.info("Resource: " + cmdData.getResource());
             }
             if (cmd.hasOption("role")) {
                 cmdData.setRole(cmd.getOptionValue("role"));
-                System.out.println("Role : " + cmdData.getRole());
+                System.out.println("Role: " + cmdData.getRole());
+                log.info("Role: " + cmdData.getRole());
             }
             if (cmd.hasOption("ds")) {
                 cmdData.setDateSt(cmd.getOptionValue("ds"));
-                System.out.println("Date Start : " + cmdData.getDateSt());
+                System.out.println("Date Start: " + cmdData.getDateSt());
+                log.info("Date Start: " + cmdData.getDateSt());
             }
             if (cmd.hasOption("de")) {
                 cmdData.setDateEnd(cmd.getOptionValue("de"));
-                System.out.println("Date Start : " + cmdData.getDateEnd());
+                System.out.println("Date End: " + cmdData.getDateEnd());
+                log.info("Date End: " + cmdData.getDateEnd());
             }
             if (cmd.hasOption("vol")) {
                 cmdData.setVolume(cmd.getOptionValue("vol"));
-                System.out.println("Volume : " + cmdData.getVolume());
+                System.out.println("Volume: " + cmdData.getVolume());
+                log.info("Volume: " + cmdData.getVolume());
             }
             if (cmd.hasOption("h") || cmdData.isEmpty()) {
                 help();
             }
         } catch (ParseException e) {
-            log.log(Level.SEVERE, "Failed to Parse command line properties", e);
+            log.error("Failed to Parse command line properties", e);
             help();
         }
         return cmdData;

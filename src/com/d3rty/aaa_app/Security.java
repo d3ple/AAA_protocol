@@ -1,11 +1,16 @@
 package com.d3rty.aaa_app;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.math.BigInteger;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 
 
 public class Security {
+
+    static final Logger log = LogManager.getLogger(Aaa.class);
 
     public static String generateSalt() {
         SecureRandom random = new SecureRandom();
@@ -22,6 +27,7 @@ public class Security {
             }
             return sb.toString();
         } catch (NoSuchAlgorithmException e) {
+            log.error(e);
             throw new RuntimeException(e);
         }
     }

@@ -1,41 +1,33 @@
 package com.d3rty.aaa_app;
 
-import java.util.ArrayList;
-
-import org.apache.logging.log4j.*;
-
-import static com.d3rty.aaa_app.TryAaa.log;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class Main {
 
+    static final Logger log = LogManager.getLogger(Aaa.class);
+
     public static void main(String[] args) {
-
-        ArrayList<User> userList = new ArrayList<>();
-        userList.add(new User(1, "John Doe", "jdoe", "sup3rpaZZ"));
-        userList.add(new User(2, "Jane Row", "jrow", "Qweqrty12"));
-
-        ArrayList<Role> roleList = new ArrayList<>();
-        roleList.add(new Role(1, userList.get(0), "READ", "a"));
-        roleList.add(new Role(2, userList.get(0), "WRITE", "a.b"));
-        roleList.add(new Role(3, userList.get(1), "EXECUTE", "a.b.c"));
-        roleList.add(new Role(4, userList.get(0), "EXECUTE", "a.bc"));
-
-        ParsedUserData parsedData = new Cli(args).parse();
+        DbManager.migrate();
+        DbManager.connect();
+        DbManager conn = new DbManager();
+        ParsedData parsedData = new Parsing(args).parse();
         if (parsedData.isEmpty()) {
-            log.info("exit with code 0");
+            log.info("Data is empty. Exit code: 0");
             System.exit(0);
         } else if (parsedData.isAccountingPossible()) {
-            TryAaa.tryAuthentication(userList, parsedData);
-            TryAaa.tryAuthorization(roleList, parsedData);
-            TryAaa.tryAccounting(parsedData);
+            Aaa.tryAuthentication(conn, parsedData);
+            Aaa.tryAuthorization(parsedData);
+            Aaa.tryAccounting(parsedData);
         } else if (parsedData.isAuthorizationPossible()) {
-            TryAaa.tryAuthentication(userList, parsedData);
-            TryAaa.tryAuthorization(roleList, parsedData);
+            Aaa.tryAuthentication(conn, parsedData);
+            Aaa.tryAuthorization(parsedData);
         } else if (parsedData.isAuthenticationPossible()) {
-            TryAaa.tryAuthentication(userList, parsedData);
+            Aaa.tryAuthentication(conn, parsedData);
         } else {
             System.exit(0);
         }
+        DbManager.disconnect();
     }
 
 }
