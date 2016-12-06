@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 source ./CONFIG.sh
 
 rm -rf "$OUT"
@@ -14,7 +15,7 @@ find . -name "*.java" | xargs javac -classpath "$LIB" -d $OUT_CLS -sourcepath $S
 jar -cfe $OUT_JAR $MAIN -C $OUT_CLS .
 
 if [ $? == 0 ] ; then
-    echo "Successfully compilated."
+    echo "Successfully compiled."
     exit 0
 else
     echo "Unsuccessfully. Something wrong"

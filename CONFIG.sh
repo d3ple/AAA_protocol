@@ -1,7 +1,9 @@
+#!/usr/bin/env bash
 MAIN="com.d3rty.aaaprotocol.Main"
 LIB="lib/*"
-RES="src/resources/*"
-SRC=".src/"
+RES="src/main/resources/*"
+SRC=".src/main/java/*"
+
 OUT="out"
 OUT_JAR="$OUT/AAA_app.jar"
 OUT_CLS="$OUT/classes/"

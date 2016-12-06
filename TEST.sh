@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 result=0
 
 test () {
