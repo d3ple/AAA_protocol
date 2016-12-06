@@ -1,4 +1,4 @@
-package com.d3rty.aaaprotocol;
+package com.d3rty.aaaprotocol.domain;
 
 public class Role {
 

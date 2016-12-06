@@ -1,5 +1,8 @@
 package com.d3rty.aaaprotocol;
 
+import com.d3rty.aaaprotocol.domain.Accounting;
+import com.d3rty.aaaprotocol.domain.Role;
+import com.d3rty.aaaprotocol.domain.User;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.flywaydb.core.Flyway;

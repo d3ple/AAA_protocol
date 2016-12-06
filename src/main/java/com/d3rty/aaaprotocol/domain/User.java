@@ -1,5 +1,6 @@
-package com.d3rty.aaaprotocol;
+package com.d3rty.aaaprotocol.domain;
 
+import com.d3rty.aaaprotocol.Security;
 
 public class User {
     private int id;
