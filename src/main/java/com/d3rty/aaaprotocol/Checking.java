@@ -5,12 +5,10 @@ import com.d3rty.aaaprotocol.domain.User;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.ArrayList;
-
 
 public class Checking {
 
-    static final Logger log = LogManager.getLogger(Checking.class);
+    private static final Logger log = LogManager.getLogger(Checking.class);
 
     public static Boolean checkLogin(String username) {
         if (DbManager.getUserByLogin(username) != null) {
@@ -20,8 +18,9 @@ public class Checking {
         return false;
     }
 
-    public static Boolean checkPassword(DbManager conn, ParsedData parsedData) {
-        User user = conn.getUserByLogin(parsedData.getLogin());
+    public static Boolean checkPassword(ParsedData parsedData) {
+        User user = DbManager.getUserByLogin(parsedData.getLogin());
+        assert user != null;
         String hash = (Security.generateMd5(Security.generateMd5(parsedData.getPassword()) + user.getSalt()));
         if ((hash.equals(user.getPassword()))) {
             log.info("Password OK");
@@ -34,12 +33,7 @@ public class Checking {
         User user = DbManager.getUserByLogin(parsedData.getLogin());
         Role role = new Role();
         role.setName(parsedData.getRole());
-
-        ArrayList<String> aRoleList = new ArrayList<>();
-        for (AvailableRoles aRole : AvailableRoles.values()) {
-            aRoleList.add(aRole.name());
-        }
-        if (!aRoleList.contains(parsedData.getRole())) {
+        if (!AvailableRoles.getAvailableRoles().contains(parsedData.getRole())) {
             log.error("\"" + parsedData.getRole() + "\"  invalid role. Exit code : 3");
             System.exit(3);
         } else {

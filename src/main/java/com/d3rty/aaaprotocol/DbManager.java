@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 public class DbManager {
 
-    static final Logger log = LogManager.getLogger(DbManager.class);
+    private static final Logger log = LogManager.getLogger(DbManager.class);
 
     private static final String DB_URL = "jdbc:h2:file:./src/main/resources/db/aaa";
     private static final String LOGIN = "sa";

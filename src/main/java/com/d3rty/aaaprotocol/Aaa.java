@@ -11,13 +11,13 @@ import java.time.format.DateTimeFormatter;
 
 public class Aaa {
 
-    static final Logger log = LogManager.getLogger(Aaa.class);
+    private static final Logger log = LogManager.getLogger(Aaa.class);
 
-    public static void tryAuthentication(DbManager conn, ParsedData parsed) {
+    public static void tryAuthentication(ParsedData parsed) {
         if (!Checking.checkLogin(parsed.getLogin())) {
             log.error("\"" + parsed.getLogin() + "\" is wrong username. Exit code : 1");
             System.exit(1);
-        } else if (!Checking.checkPassword(conn, parsed)) {
+        } else if (!Checking.checkPassword(parsed)) {
             log.error("\"" + parsed.getPassword() + "\" is wrong password. Exit code : 2");
             System.exit(2);
         } else {

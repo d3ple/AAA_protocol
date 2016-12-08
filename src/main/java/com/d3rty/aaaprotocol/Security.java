@@ -10,7 +10,7 @@ import java.security.SecureRandom;
 
 public class Security {
 
-    static final Logger log = LogManager.getLogger(Security.class);
+    private static final Logger log = LogManager.getLogger(Security.class);
 
     public static String generateSalt() {
         SecureRandom random = new SecureRandom();
@@ -21,9 +21,9 @@ public class Security {
         try {
             java.security.MessageDigest md = java.security.MessageDigest.getInstance("MD5");
             byte[] array = md.digest(message.getBytes());
-            StringBuffer sb = new StringBuffer();
-            for (int i = 0; i < array.length; ++i) {
-                sb.append(Integer.toHexString((array[i] & 0xFF) | 0x100).substring(1, 3));
+            StringBuilder sb = new StringBuilder();
+            for (byte anArray : array) {
+                sb.append(Integer.toHexString((anArray & 0xFF) | 0x100).substring(1, 3));
             }
             return sb.toString();
         } catch (NoSuchAlgorithmException e) {

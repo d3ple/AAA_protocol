@@ -8,7 +8,7 @@ import org.apache.logging.log4j.Logger;
 
 public class Parsing {
 
-    static final Logger log = LogManager.getLogger(Parsing.class);
+    private static final Logger log = LogManager.getLogger(Parsing.class);
 
     private String[] args = null;
     private Options options = new Options();
