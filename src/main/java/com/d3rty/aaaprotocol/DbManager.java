@@ -15,7 +15,7 @@ public class DbManager {
 
     static final Logger log = LogManager.getLogger(DbManager.class);
 
-    private static final String DB_URL = "jdbc:h2:./src/main/resources/db/aaa";
+    private static final String DB_URL = "jdbc:h2:file:./src/main/resources/db/aaa";
     private static final String LOGIN = "sa";
     private static final String PASSWORD = "";
     private static final String H2_DRIVER = "org.h2.Driver";

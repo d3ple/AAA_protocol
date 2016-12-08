@@ -3,7 +3,7 @@ result=0
 
 test () {
     arr=($1)
-    ./RUN.sh ${arr[*]}
+    java -jar ./target/AAA_app.jar $* ${arr[*]}
     status=$?
     if [[ $status -ne $2 ]]; then
         echo TESTING FAIL [$1] $status "!=" $2
@@ -14,7 +14,7 @@ test () {
     return $status
 }
 
-./BUILD.sh
+mvn clean package
 
 test "" 0
 test "-h" 0
