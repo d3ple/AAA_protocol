@@ -1,5 +1,6 @@
 package com.d3rty.aaaprotocol;
 
+import com.d3rty.aaaprotocol.dao.DbUserSelecting;
 import com.d3rty.aaaprotocol.domain.Accounting;
 import com.d3rty.aaaprotocol.domain.Role;
 import com.d3rty.aaaprotocol.domain.User;
@@ -58,17 +59,17 @@ public class Aaa {
             System.exit(5);
         }
 
-        User user = DbManager.getUserByLogin(parsed.getLogin());
+        User user = DbUserSelecting.getUserByLogin(parsed.getLogin());
         Role curRole = new Role();
         Role role = new Role();
         role.setName(parsed.getRole());
         role.setResource(parsed.getResource());
-        for (Role r : DbManager.getPermissionByUserAndRole(user, role)) {
+        for (Role r : DbUserSelecting.getPermissionByUserAndRole(user, role)) {
             if (r.getName().equals(parsed.getRole())) {
                 curRole.setId(r.getId());
             }
         }
-        DbManager.addIntoAccounting(new Accounting(curRole, parsed.getResource(), startDay, endDay, volume));
+        DbUserSelecting.addIntoAccounting(new Accounting(curRole, parsed.getResource(), startDay, endDay, volume));
         log.info("Accounting complete");
     }
 

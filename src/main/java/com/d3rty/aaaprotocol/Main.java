@@ -1,5 +1,6 @@
 package com.d3rty.aaaprotocol;
 
+import com.d3rty.aaaprotocol.dao.DbManager;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
