@@ -11,16 +11,16 @@ public class Checking {
 
     private static final Logger log = LogManager.getLogger(Checking.class);
 
-    public static Boolean checkLogin(String username) {
-        if (DbUserSelecting.getUserByLogin(username) != null) {
+    public static Boolean checkLogin(String username, DbUserSelecting dbUser) {
+        if (dbUser.getUserByLogin(username) != null) {
             log.info("Username OK");
             return true;
         }
         return false;
     }
 
-    public static Boolean checkPassword(ParsedData parsedData) {
-        User user = DbUserSelecting.getUserByLogin(parsedData.getLogin());
+    public static Boolean checkPassword(ParsedData parsedData, DbUserSelecting dbUser) {
+        User user = dbUser.getUserByLogin(parsedData.getLogin());
         assert user != null;
         String hash = (Security.generateMd5(Security.generateMd5(parsedData.getPassword()) + user.getSalt()));
         if ((hash.equals(user.getPassword()))) {
@@ -30,15 +30,15 @@ public class Checking {
         return false;
     }
 
-    public static Boolean checkRole(ParsedData parsedData) {
-        User user = DbUserSelecting.getUserByLogin(parsedData.getLogin());
+    public static Boolean checkRole(ParsedData parsedData, DbUserSelecting dbUser) {
+        User user = dbUser.getUserByLogin(parsedData.getLogin());
         Role role = new Role();
         role.setName(parsedData.getRole());
         if (!AvailableRoles.getAvailableRoles().contains(parsedData.getRole())) {
             log.error("\"" + parsedData.getRole() + "\"  invalid role. Exit code : 3");
             System.exit(3);
         } else {
-            for (Role r : DbUserSelecting.getPermissionByUserAndRole(user, role)) {
+            for (Role r : dbUser.getPermissionByUserAndRole(user, role)) {
                 if (parsedData.getRole().equals(r.getName())) {
                     log.info("Role OK");
                     return true;
@@ -48,11 +48,11 @@ public class Checking {
         return false;
     }
 
-    public static Boolean checkRoleAndResource(ParsedData parsedData) {
-        User user = DbUserSelecting.getUserByLogin(parsedData.getLogin());
+    public static Boolean checkRoleAndResource(ParsedData parsedData, DbUserSelecting dbUser) {
+        User user = dbUser.getUserByLogin(parsedData.getLogin());
         Role role = new Role();
         role.setName(parsedData.getRole());
-        for (Role r : DbUserSelecting.getPermissionByUserAndRole(user, role)) {
+        for (Role r : dbUser.getPermissionByUserAndRole(user, role)) {
             if (parsedData.getRole().equals(r.getName()) && isParentOf(r.getResource(), parsedData.getResource())) {
                 log.info("Permission OK");
                 return true;

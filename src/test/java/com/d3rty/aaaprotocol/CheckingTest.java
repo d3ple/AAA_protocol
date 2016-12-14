@@ -1,47 +1,126 @@
 package com.d3rty.aaaprotocol;
 
 import com.d3rty.aaaprotocol.dao.DbUserSelecting;
+import com.d3rty.aaaprotocol.domain.Role;
 import com.d3rty.aaaprotocol.domain.User;
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
+
+import static junit.framework.TestCase.assertFalse;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 public class CheckingTest {
     private static User thisUser;
 
-    @Before
-    public void setUp() throws Exception {
-
-    }
-
-    @After
-    public void tearDown() throws Exception {
-
-    }
-
-//    @Test
-//    public void checkLogin() throws Exception {
-//        DbUserSelecting dbu = mock(DbUserSelecting.class);
-//        when(dbu.getUserByLogin("login")).thenReturn(thisUser =
-//                new User(1, "name", "login", "password", "salt"));
-//    }
-
     @Test
-    public void checkPassword() throws Exception {
-
+    public void checkLoginTrue() throws Exception {
+        DbUserSelecting dbu = mock(DbUserSelecting.class);
+        when(dbu.getUserByLogin("login")).thenReturn(thisUser =
+                new User(1, "name", "login", "password", "salt"));
+        assertTrue(dbu.getUserByLogin("login") != null);
     }
 
     @Test
-    public void checkRole() throws Exception {
-
+    public void checkPasswordTrue() throws Exception {
+        String parspass = "sup3rpaZZ";
+        DbUserSelecting dbu = mock(DbUserSelecting.class);
+        when(dbu.getUserByLogin("login")).thenReturn(thisUser =
+                new User(1, "name", "login", "25a484b7ce566100dad87d122553753b", "1032121645149048302153761834111909839585"));
+        String hash = (Security.generateMd5(Security.generateMd5(parspass) + thisUser.getSalt()));
+        assertTrue(thisUser.getPassword().equals(hash));
     }
 
     @Test
-    public void checkRoleAndResource() throws Exception {
+    public void checkRoleTrue() throws Exception {
 
+        DbUserSelecting dbu = mock(DbUserSelecting.class);
+        when(dbu.getUserByLogin("login")).thenReturn(thisUser =
+                new User(1, "name", "login", "password", "salt"));
+
+        ArrayList<Role> roles = new ArrayList<>();
+        roles.add(new Role(1, thisUser, "READ", "a"));
+        roles.add(new Role(2, thisUser, "WRITE", "a.b"));
+
+        Role role = new Role();
+        role.setName("READ");
+        when(dbu.getPermissionByUserAndRole(thisUser, role)).thenReturn(roles);
+
+        Boolean trueRole = null;
+        for (Role r : roles) {
+            if (role.getName().equals(r.getName())) {
+                trueRole = true;
+            }
+        }
+        assertTrue(trueRole);
+    }
+
+    @Test
+    public void checkLoginFalse() throws Exception {
+        DbUserSelecting dbu = mock(DbUserSelecting.class);
+        when(dbu.getUserByLogin("")).thenReturn(thisUser = new User());
+        assertFalse(dbu.getUserByLogin("login") != null);
+    }
+
+    @Test
+    public void checkPasswordFalse() throws Exception {
+        String parspass = "password";
+        DbUserSelecting dbu = mock(DbUserSelecting.class);
+        when(dbu.getUserByLogin("login")).
+                thenReturn(thisUser = new User(1, "name", "login",
+                "25a484b7ce566100dad87d122553753b", "1032121645149048302153761834111909839585"));
+        String hash = (Security.generateMd5(Security.generateMd5(parspass) + thisUser.getSalt()));
+        assertFalse(thisUser.getPassword().equals(hash));
+    }
+
+    @Test
+    public void checkRoleFalse() throws Exception {
+
+        DbUserSelecting dbu = mock(DbUserSelecting.class);
+        when(dbu.getUserByLogin("login")).thenReturn(thisUser =
+                new User(1, "name", "login", "password", "salt"));
+
+        ArrayList<Role> roles = new ArrayList<>();
+        roles.add(new Role(1, thisUser, "READ", "a"));
+        roles.add(new Role(2, thisUser, "WRITE", "a.b"));
+
+        Role role = new Role();
+        role.setName("ROLE");
+        when(dbu.getPermissionByUserAndRole(thisUser, role)).thenReturn(roles);
+
+        Boolean trueRole = null;
+        for (Role r : roles) {
+            if (role.getName().equals(r.getName())) {
+                trueRole = true;
+            } else trueRole = false;
+        }
+        assertFalse(trueRole);
+    }
+
+    @Test
+    public void checkResourceTrue() throws Exception {
+
+        DbUserSelecting dbu = mock(DbUserSelecting.class);
+        when(dbu.getUserByLogin("login")).thenReturn(thisUser =
+                new User(1, "name", "login", "password", "salt"));
+
+        ArrayList<Role> roles = new ArrayList<>();
+        Role role = new Role();
+        role.setName("READ");
+        role.setResource("a");
+        when(dbu.getPermissionByUserAndRole(thisUser, role)).thenReturn(roles);
+        roles.add(new Role(1, thisUser, "READ", "a"));
+        roles.add(new Role(2, thisUser, "WRITE", "a.b"));
+
+        Boolean trueRole = null;
+        for (Role r : roles) {
+            if (role.getResource().equals(r.getResource())) {
+                trueRole = true;
+            } else trueRole = false;
+        }
+        assertTrue(trueRole);
     }
 
 }

@@ -1,6 +1,5 @@
 package com.d3rty.aaaprotocol.dao;
 
-
 import com.d3rty.aaaprotocol.domain.Accounting;
 import com.d3rty.aaaprotocol.domain.Role;
 import com.d3rty.aaaprotocol.domain.User;
@@ -15,11 +14,12 @@ import java.util.ArrayList;
 
 public class DbUserSelecting {
 
+    private static DbManager db = new DbManager();
     private static final Logger log = LogManager.getLogger(DbUserSelecting.class);
 
-    public static User getUserByLogin(String login) {
+    public User getUserByLogin(String login) {
         try {
-            PreparedStatement preparedStatement = DbManager.prepareStatement("SELECT * FROM USER WHERE LOGIN = ?");
+            PreparedStatement preparedStatement = db.prepareStatement("SELECT * FROM USER WHERE LOGIN = ?");
             preparedStatement.setString(1, login);
             ResultSet rs = preparedStatement.executeQuery();
             if (rs.next()) {
@@ -38,9 +38,9 @@ public class DbUserSelecting {
         }
     }
 
-    public static ArrayList<Role> getPermissionByUserAndRole(User user, Role role) {
+    public ArrayList<Role> getPermissionByUserAndRole(User user, Role role) {
         try {
-            PreparedStatement preparedStatement = DbManager.
+            PreparedStatement preparedStatement = db.
                     prepareStatement("SELECT * FROM PERMISSION WHERE USER_ID = ? AND ROLE = ?");
             preparedStatement.setLong(1, user.getId());
             preparedStatement.setString(2, role.getName());
@@ -60,9 +60,9 @@ public class DbUserSelecting {
         }
     }
 
-    public static void addIntoAccounting(Accounting accounting) {
+    public void addIntoAccounting(Accounting accounting) {
         try {
-            PreparedStatement preparedStatement = DbManager.prepareStatement(
+            PreparedStatement preparedStatement = db.prepareStatement(
                     "INSERT INTO accounting (PERMISSION_ID, DATE_START, DATE_END, VOLUME) VALUES (?,?,?,?)");
             preparedStatement.setInt(1, accounting.getRole().getId());
             preparedStatement.setDate(2, Date.valueOf(accounting.getDateSt()));

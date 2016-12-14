@@ -21,7 +21,7 @@ public class DbManager {
     private static final String H2_DRIVER = "org.h2.Driver";
     private static Connection dbConnection;
 
-    public static void connect() {
+    public void connect() {
         try {
             Class.forName(H2_DRIVER);
         } catch (ClassNotFoundException e) {
@@ -35,7 +35,7 @@ public class DbManager {
         }
     }
 
-    public static void disconnect() {
+    public void disconnect() {
         if (dbConnection != null) {
             try {
                 dbConnection.close();
@@ -46,7 +46,7 @@ public class DbManager {
         }
     }
 
-    public static void migrate() {
+    public void migrate() {
         Flyway flyway = new Flyway();
         flyway.setDataSource(DB_URL, LOGIN, PASSWORD);
         try {
@@ -57,7 +57,7 @@ public class DbManager {
         }
     }
 
-    public static PreparedStatement prepareStatement(String s) throws SQLException {
+    public PreparedStatement prepareStatement(String s) throws SQLException {
         return dbConnection.prepareStatement(s);
     }
 }
