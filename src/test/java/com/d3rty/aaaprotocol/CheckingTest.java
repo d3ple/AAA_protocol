@@ -99,28 +99,5 @@ public class CheckingTest {
         assertFalse(trueRole);
     }
 
-    @Test
-    public void checkResourceTrue() throws Exception {
-
-        DbUserSelecting dbu = mock(DbUserSelecting.class);
-        when(dbu.getUserByLogin("login")).thenReturn(thisUser =
-                new User(1, "name", "login", "password", "salt"));
-
-        ArrayList<Role> roles = new ArrayList<>();
-        Role role = new Role();
-        role.setName("READ");
-        role.setResource("a");
-        when(dbu.getPermissionByUserAndRole(thisUser, role)).thenReturn(roles);
-        roles.add(new Role(1, thisUser, "READ", "a"));
-        roles.add(new Role(2, thisUser, "WRITE", "a.b"));
-
-        Boolean trueRole = null;
-        for (Role r : roles) {
-            if (role.getResource().equals(r.getResource())) {
-                trueRole = true;
-            } else trueRole = false;
-        }
-        assertTrue(trueRole);
-    }
 
 }
