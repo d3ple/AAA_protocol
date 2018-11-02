@@ -25,7 +25,7 @@ The AAA protocol refers to a security architecture for distributed systems for c
 - [x] 1 - Base of AAA
 - [x] 2 - Testing scripts and travis-ci.org
 - [x] 3 - Database and Logging
-- [ ] 4 - Maven
+- [x] 4 - Maven
 - [ ] 5 - WEB application
 
 
